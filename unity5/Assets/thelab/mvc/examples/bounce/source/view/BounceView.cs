@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using thelab.mvc;
 
 /// <summary>
 /// Root class for all views.
