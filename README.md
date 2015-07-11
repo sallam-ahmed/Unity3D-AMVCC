@@ -13,7 +13,7 @@ Minimalistic C# MVC framework adapted for Unity3D projects.
 
 # Asset Store
 
-* TBD
+https://www.assetstore.unity3d.com/#!/content/41487
 
 # Install  
   
