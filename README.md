@@ -1,7 +1,15 @@
-![logo](http://thelaborat.org/unity/mvc/img/logo-type-512.png)
-# Unity3D Model-View-Controller
+![logo](http://thelaborat.org/unity/mvc/img/header-128.png)
+# Model-View-Controller for Unity3D
   
-Framework that will help the development of projects based on the MVC pattern.
+Minimalistic C# MVC framework adapted for Unity3D projects.
+
+# Features
+
+* Separate your game in Data, Features and Workflow.
+* Parallelize work and improve code production.
+* Standardize your projects and keep a consistent workflow even for different teams.
+* Easy to learn and follow. Don't suffer with a myriad of coding styles between projects. 
+* Legacy projects will still be readable for future audiences!  
 
 # Asset Store
 
@@ -130,6 +138,11 @@ public class MyController : Controller<MyApp>
   }
 }
 ```
+
+# Documentation  
+
+Link [http://goo.gl/307V5J]
+
 
 # Examples  
 
