@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>thelab-mvc</name>
+    </assembly>
+    <members>
+        <member name="T:thelab.mvc.Controller">
+            <summary>
+            Base class for all Controllers in the application.
+            </summary>
+        </member>
+        <member name="T:thelab.mvc.Element">
+            <summary>
+            Base class for all MVC related classes.
+            </summary>
+        </member>
+        <member name="M:thelab.mvc.Element.Assert``1(``0,System.Boolean)">
+            <summary>
+            Finds a instance of 'T' if 'var' is null. Returns 'var' otherwise.
+            If 'global' is 'true' searches in all scope, otherwise, searches in childrens.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="p_var"></param>
+            <param name="p_global"></param>
+            <returns></returns>
+        </member>
+        <member name="M:thelab.mvc.Element.Find``1(System.String)">
+            <summary>
+            Searchs for a given element in the dot separated path.
+            </summary>
+            <param name="p_path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:thelab.mvc.Element.Notify(System.String,System.Object[])">
+            <summary>
+            Sends a notification to all controllers passing this instance as 'target'.
+            </summary>
+            <param name="p_event"></param>
+            <param name="p_data"></param>
+        </member>
+        <member name="M:thelab.mvc.Element.Log(System.String,System.Int32)">
+            <summary>
+            Logs a message using this element information.
+            </summary>
+            <param name="p_msg"></param>
+        </member>
+        <member name="P:thelab.mvc.Element.app">
+            <summary>
+            Reference to the root application of the scene.
+            </summary>
+        </member>
+        <member name="M:thelab.mvc.Controller.OnNotification(System.String,UnityEngine.Object,System.Object[])">
+            <summary>
+            Handles notifications sent from any Element in the currently running scene.
+            </summary>
+            <param name="p_event"></param>
+            <param name="p_target"></param>
+            <param name="p_data"></param>
+        </member>
+        <member name="T:thelab.mvc.Controller`1">
+            <summary>
+            Base class for all Controller related classes.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.Controller`1.app">
+            <summary>
+            Returns app as a custom 'T' type.
+            </summary>
+        </member>
+        <member name="T:thelab.mvc.BaseApplication`3">
+            <summary>
+            Extension of the BaseApplication class to handle different types of Model View Controllers.
+            </summary>
+            <typeparam name="M"></typeparam>
+            <typeparam name="V"></typeparam>
+            <typeparam name="C"></typeparam>
+        </member>
+        <member name="T:thelab.mvc.BaseApplication">
+            <summary>
+            Root class for the scene's scripts.
+            </summary>
+        </member>
+        <member name="F:thelab.mvc.BaseApplication.m_first_scene">
+            <summary>
+            Flag that indicates the first scene was loaded.
+            </summary>
+        </member>
+        <member name="M:thelab.mvc.BaseApplication.#cctor">
+            <summary>
+            Little static init.
+            </summary>
+        </member>
+        <member name="F:thelab.mvc.BaseApplication.verbose">
+            <summary>
+            Verbose Level.
+            </summary>
+        </member>
+        <member name="M:thelab.mvc.BaseApplication.Awake">
+            <summary>
+            Initialization.
+            </summary>
+        </member>
+        <member name="M:thelab.mvc.BaseApplication.OnLevelWasLoaded(System.Int32)">
+            <summary>
+            Capture the level loaded event and notify controllers for 'starting' purposes.
+            </summary>
+            <param name="p_level"></param>
+        </member>
+        <member name="M:thelab.mvc.BaseApplication.Notify(System.String,UnityEngine.Object,System.Object[])">
+            <summary>
+            Notifies all application's controllers.
+            </summary>
+            <param name="p_event"></param>
+            <param name="p_target"></param>
+            <param name="p_data"></param>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication._args">
+            <summary>
+            Arguments to be passed between scenes.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication.args">
+            <summary>
+            Arguments passed between scenes.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication.model">
+            <summary>
+            Fetches the root Model instance.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication.view">
+            <summary>
+            Fetches the root View instance.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication.controller">
+            <summary>
+            Fetches the root Controller instance.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication`3.model">
+            <summary>
+            Model reference using the new type.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication`3.view">
+            <summary>
+            View reference using the new type.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.BaseApplication`3.controller">
+            <summary>
+            Controller reference using the new type.
+            </summary>
+        </member>
+        <member name="T:thelab.mvc.Element`1">
+            <summary>
+            Extension of the element class to handle different BaseApplication types.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:thelab.mvc.Element`1.app">
+            <summary>
+            Returns app as a custom 'T' type.
+            </summary>
+        </member>
+        <member name="T:thelab.mvc.Model">
+            <summary>
+            Base class for all Model related classes.
+            </summary>
+        </member>
+        <member name="T:thelab.mvc.Model`1">
+            <summary>
+            Base class for all Model related classes.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.Model`1.app">
+            <summary>
+            Returns app as a custom 'T' type.
+            </summary>
+        </member>
+        <member name="T:thelab.mvc.View">
+            <summary>
+            Base class for all View related classes.
+            </summary>
+        </member>
+        <member name="T:thelab.mvc.View`1">
+            <summary>
+            Base class for all View related classes.
+            </summary>
+        </member>
+        <member name="P:thelab.mvc.View`1.app">
+            <summary>
+            Returns app as a custom 'T' type.
+            </summary>
+        </member>
+    </members>
+</doc>

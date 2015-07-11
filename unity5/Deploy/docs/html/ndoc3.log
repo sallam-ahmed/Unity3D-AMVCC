@@ -1,0 +1,344 @@
+Building documentation...
+Memory before build: 1266632
+Initializing...
+Merging XML documentation...
+Cached doc : thelab-mvc.xml (0 sec.)
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.Controller':
+<summary>
+            Base class for all Controllers in the application.
+            </summary>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.Element':
+<summary>
+            Base class for all MVC related classes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.Element.Assert``1(``0,System.Boolean)':
+<summary>
+            Finds a instance of 'T' if 'var' is null. Returns 'var' otherwise.
+            If 'global' is 'true' searches in all scope, otherwise, searches in childrens.
+            </summary>
+<typeparam name="T"></typeparam>
+<param name="p_var"></param>
+<param name="p_global"></param>
+<returns></returns>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.Element.Find``1(System.String)':
+<summary>
+            Searchs for a given element in the dot separated path.
+            </summary>
+<param name="p_path"></param>
+<returns></returns>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.Element.Notify(System.String,System.Object[])':
+<summary>
+            Sends a notification to all controllers passing this instance as 'target'.
+            </summary>
+<param name="p_event"></param>
+<param name="p_data"></param>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.Element.Log(System.String,System.Int32)':
+<summary>
+            Logs a message using this element information.
+            </summary>
+<param name="p_msg"></param>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.Element.app':
+<summary>
+            Reference to the root application of the scene.
+            </summary>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.Controller.OnNotification(System.String,UnityEngine.Object,System.Object[])':
+<summary>
+            Handles notifications sent from any Element in the currently running scene.
+            </summary>
+<param name="p_event"></param>
+<param name="p_target"></param>
+<param name="p_data"></param>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.Controller`1':
+<summary>
+            Base class for all Controller related classes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.Controller`1.app':
+<summary>
+            Returns app as a custom 'T' type.
+            </summary>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.BaseApplication`3':
+<summary>
+            Extension of the BaseApplication class to handle different types of Model View Controllers.
+            </summary>
+<typeparam name="M"></typeparam>
+<typeparam name="V"></typeparam>
+<typeparam name="C"></typeparam>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.BaseApplication':
+<summary>
+            Root class for the scene's scripts.
+            </summary>
+TRACE: processing comment '[thelab-mvc]F:thelab.mvc.BaseApplication.m_first_scene':
+<summary>
+            Flag that indicates the first scene was loaded.
+            </summary>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.BaseApplication.#cctor':
+<summary>
+            Little static init.
+            </summary>
+TRACE: processing comment '[thelab-mvc]F:thelab.mvc.BaseApplication.verbose':
+<summary>
+            Verbose Level.
+            </summary>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.BaseApplication.Awake':
+<summary>
+            Initialization.
+            </summary>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.BaseApplication.OnLevelWasLoaded(System.Int32)':
+<summary>
+            Capture the level loaded event and notify controllers for 'starting' purposes.
+            </summary>
+<param name="p_level"></param>
+TRACE: processing comment '[thelab-mvc]M:thelab.mvc.BaseApplication.Notify(System.String,UnityEngine.Object,System.Object[])':
+<summary>
+            Notifies all application's controllers.
+            </summary>
+<param name="p_event"></param>
+<param name="p_target"></param>
+<param name="p_data"></param>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication._args':
+<summary>
+            Arguments to be passed between scenes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication.args':
+<summary>
+            Arguments passed between scenes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication.model':
+<summary>
+            Fetches the root Model instance.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication.view':
+<summary>
+            Fetches the root View instance.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication.controller':
+<summary>
+            Fetches the root Controller instance.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication`3.model':
+<summary>
+            Model reference using the new type.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication`3.view':
+<summary>
+            View reference using the new type.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.BaseApplication`3.controller':
+<summary>
+            Controller reference using the new type.
+            </summary>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.Element`1':
+<summary>
+            Extension of the element class to handle different BaseApplication types.
+            </summary>
+<typeparam name="T"></typeparam>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.Element`1.app':
+<summary>
+            Returns app as a custom 'T' type.
+            </summary>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.Model':
+<summary>
+            Base class for all Model related classes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.Model`1':
+<summary>
+            Base class for all Model related classes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.Model`1.app':
+<summary>
+            Returns app as a custom 'T' type.
+            </summary>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.View':
+<summary>
+            Base class for all View related classes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]T:thelab.mvc.View`1':
+<summary>
+            Base class for all View related classes.
+            </summary>
+TRACE: processing comment '[thelab-mvc]P:thelab.mvc.View`1.app':
+<summary>
+            Returns app as a custom 'T' type.
+            </summary>
+Memory before making xml: 3578096
+Writing namespace thelab.mvc...
+XML Doc not found for UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+XML Doc not found for mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+Wrote 10 classes.
+Wrote 0 interfaces.
+Wrote 0 structures.
+Wrote 0 delegates.
+Wrote 0 enumerations.
+Completed thelab-mvc, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+0,234 sec.
+MakeXML : 0,234 sec.
+MakeXML : 0,234 sec.
+Memory after making xml: 2368704
+Loading XSLT files...
+XSLT probing directories 3
+file://C:\Program Files (x86)\NDoc3\bin\Documenter\Msdn\xslt
+file://C:\Documenter\Msdn\xslt
+file://C:\src\Documenter\Msdn\xslt
+    Compiling assembly.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.assembly.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.common.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.filenames.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.global_arguments.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.syntax.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.vb-syntax.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.tags.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.blank.xsltCompiling namespace.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.namespace.xsltCompiling namespacehierarchy.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.namespacehierarchy.xsltCompiling type.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.type.xsltCompiling typehierarchy.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.typehierarchy.xsltCompiling allmembers.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.allmembers.xsltNo external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.memberscommon.xsltCompiling individualmembers.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.individualmembers.xsltCompiling event.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.event.xsltCompiling member.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.member.xsltCompiling memberoverload.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.memberoverload.xsltCompiling property.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.property.xsltCompiling field.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.field.xsltCompiling htmlcontents.xslt
+    No external found - using embedded assembly:[NDoc3.Documenter.Msdn]NDoc3.Documenter.Msdn.xslt.htmlcontents.xsltGenerating HTML pages...
+~thelab.mvc.html
+15 msec.
+~thelab.mvc~Hierarchy.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication~Members.html
+31 msec.
+thelab-mvc~thelab.mvc.BaseApplication.~ctor.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication~Fields.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication.verbose.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication~Properties.html
+15 msec.
+thelab-mvc~thelab.mvc.BaseApplication.args.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication.controller.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication.model.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication.view.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication~Methods.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication.Awake.html
+15 msec.
+thelab-mvc~thelab.mvc.BaseApplication.Notify~Overloads.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication.Notify1.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3.html
+15 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3~Members.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3.~ctor.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3~Properties.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3.controller1.html
+0 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3.model1.html
+15 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3.view1.html
+0 msec.
+thelab-mvc~thelab.mvc.Controller.html
+16 msec.
+thelab-mvc~thelab.mvc.Controller~Members.html
+15 msec.
+thelab-mvc~thelab.mvc.Controller.~ctor.html
+16 msec.
+thelab-mvc~thelab.mvc.Controller~Methods.html
+16 msec.
+thelab-mvc~thelab.mvc.Controller.OnNotification.html
+0 msec.
+thelab-mvc~thelab.mvc.Controller$1.html
+15 msec.
+thelab-mvc~thelab.mvc.Controller$1~Members.html
+16 msec.
+thelab-mvc~thelab.mvc.Controller$1.~ctor.html
+15 msec.
+thelab-mvc~thelab.mvc.Controller$1~Properties.html
+0 msec.
+thelab-mvc~thelab.mvc.Controller$1.app1.html
+16 msec.
+thelab-mvc~thelab.mvc.Element.html
+0 msec.
+thelab-mvc~thelab.mvc.Element~Members.html
+16 msec.
+thelab-mvc~thelab.mvc.Element.~ctor.html
+15 msec.
+thelab-mvc~thelab.mvc.Element~Properties.html
+0 msec.
+thelab-mvc~thelab.mvc.Element.app.html
+16 msec.
+thelab-mvc~thelab.mvc.Element~Methods.html
+0 msec.
+thelab-mvc~thelab.mvc.Element.Assert$$1.html
+15 msec.
+thelab-mvc~thelab.mvc.Element.Find$$1.html
+0 msec.
+thelab-mvc~thelab.mvc.Element.Log.html
+16 msec.
+thelab-mvc~thelab.mvc.Element.Notify.html
+0 msec.
+thelab-mvc~thelab.mvc.Element$1.html
+16 msec.
+thelab-mvc~thelab.mvc.Element$1~Members.html
+15 msec.
+thelab-mvc~thelab.mvc.Element$1.~ctor.html
+16 msec.
+thelab-mvc~thelab.mvc.Element$1~Properties.html
+0 msec.
+thelab-mvc~thelab.mvc.Element$1.app1.html
+0 msec.
+thelab-mvc~thelab.mvc.Model.html
+15 msec.
+thelab-mvc~thelab.mvc.Model~Members.html
+16 msec.
+thelab-mvc~thelab.mvc.Model.~ctor.html
+16 msec.
+thelab-mvc~thelab.mvc.Model$1.html
+0 msec.
+thelab-mvc~thelab.mvc.Model$1~Members.html
+15 msec.
+thelab-mvc~thelab.mvc.Model$1.~ctor.html
+16 msec.
+thelab-mvc~thelab.mvc.Model$1~Properties.html
+0 msec.
+thelab-mvc~thelab.mvc.Model$1.app1.html
+15 msec.
+thelab-mvc~thelab.mvc.View.html
+0 msec.
+thelab-mvc~thelab.mvc.View~Members.html
+16 msec.
+thelab-mvc~thelab.mvc.View.~ctor.html
+16 msec.
+thelab-mvc~thelab.mvc.View$1.html
+0 msec.
+thelab-mvc~thelab.mvc.View$1~Members.html
+15 msec.
+thelab-mvc~thelab.mvc.View$1.~ctor.html
+16 msec.
+thelab-mvc~thelab.mvc.View$1~Properties.html
+0 msec.
+thelab-mvc~thelab.mvc.View$1.app1.html
+15 msec.
+Making Html: 0,639 sec.
+Generating HTML index file...
+transform the HHC contents file into html
+0 msec.
+Compiling HTML Help file...
+An error occured while trying to build the documentation.
+
+
+
+Exception: NDoc3.Core.DocumenterException
+Unable to find the HTML Help Compiler. Please verify that the HTML Help Workshop has been installed.
+
+
+
+Exception: NDoc3.Core.DocumenterException
+   at NDoc3.Documenter.Msdn.HtmlHelp.get_HtmlHelpCompiler()
+   at NDoc3.Documenter.Msdn.HtmlHelp.CompileProject()
+   at NDoc3.Documenter.Msdn.MsdnDocumenter.Build(Project project)
+   at NDoc3.Gui.BuildWorker.ThreadProc()
+
+

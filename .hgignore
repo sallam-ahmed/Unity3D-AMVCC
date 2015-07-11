@@ -1,4 +1,6 @@
 syntax: glob
+unity5/Assets/AssetStoreTools
+unity5/Assets/AssetStoreTools*
 unity5/Library/AnnotationManager
 unity5/Library/AssetImportState
 unity5/Library/AssetServerCacheV3
@@ -21,6 +23,8 @@ unity5/Library/cache/
 unity5/Library/previews/
 unity5/obj/
 
+unity4/Assets/AssetStoreTools
+unity4/Assets/AssetStoreTools*
 unity4/Library/AnnotationManager
 unity4/Library/AssetImportState
 unity4/Library/AssetServerCacheV3
@@ -43,6 +47,8 @@ unity4/Library/cache/
 unity4/Library/previews/
 unity4/obj/
 
+unity3/Assets/AssetStoreTools
+unity3/Assets/AssetStoreTools*
 unity3/Library/AnnotationManager
 unity3/Library/AssetImportState
 unity3/Library/AssetServerCacheV3
