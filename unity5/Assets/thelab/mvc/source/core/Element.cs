@@ -37,7 +37,22 @@ namespace thelab.mvc
         /// <param name="p_var"></param>
         /// <param name="p_global"></param>
         /// <returns></returns>
-        public T Assert<T>(T p_var, bool p_global = false) where T : Object { return p_var == null ? (p_global ? GameObject.FindObjectOfType<T>() : transform.GetComponentInChildren<T>()) : p_var; }
+        public T Assert<T>(T p_var, bool p_global=false) where T : Object { return p_var == null ? (p_global ? GameObject.FindObjectOfType<T>() : transform.GetComponentInChildren<T>()) : p_var; }
+
+        /// <summary>
+        /// Finds a instance of 'T' locally if 'var' is null. Returns 'var' otherwise.        
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p_var"></param>
+        /// <returns></returns>
+        public T AssertLocal<T>(T p_var) where T : Object { return p_var == null ? (p_var = GetComponent<T>()) : p_var; }
+
+        /// <summary>
+        /// Helper method for casting.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T Cast<T>() { return (T)(object)this; }
 
         /// <summary>
         /// Searchs for a given element in the dot separated path.
