@@ -35,7 +35,43 @@ public class BounceController : Controller<BounceApplication>
 
             case "game.complete":
                 Log("Victory!");
+                app.view.timer.Play();
                 break;
+
+            case "mid.trigger.enter":
+            {                    
+                Log("Mid Fall Enter!");
+                ColliderView c = (ColliderView)p_target;
+                c.collider.enabled = false;
+            }
+            break;
+
+            case "start.trigger.exit":
+            {
+                Log("Start Fall Exit!");
+                ColliderView c = (ColliderView)p_target;
+                c.collider.enabled = false;
+            }
+            break;
+
+            case "start.trigger.stay":
+            {
+                Log("Start Fall Stay ["+Time.time+"]");
+            }
+            break;
+
+            case "ping.timer.step":
+            {
+                TimerView t = (TimerView)p_target;
+                Log("Ping " + t.step);
+            }
+            break;
+
+            case "ping.timer.complete":
+            {                
+                Log("Ping Complete!");
+            }
+            break;
         }
     }
 	
