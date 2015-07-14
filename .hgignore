@@ -1,4 +1,5 @@
 syntax: glob
+
 unity5/Assets/AssetStoreTools
 unity5/Assets/AssetStoreTools*
 unity5/Library/AnnotationManager
