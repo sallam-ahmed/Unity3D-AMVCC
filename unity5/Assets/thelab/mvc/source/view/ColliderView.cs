@@ -2,11 +2,16 @@
 using System.Collections;
 
 namespace thelab.mvc
-{    
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ColliderView : ColliderView<BaseApplication> { }
+
     /// <summary>
     /// Base class for collision related classes.
     /// </summary>
-    public class ColliderView : View
+    public class ColliderView<T> : NotificationView<T> where T : BaseApplication
     {
         /// <summary>
         /// This View's Collider.

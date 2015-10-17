@@ -6,7 +6,7 @@ namespace thelab.mvc
     /// <summary>
     /// Base class for collision related classes.
     /// </summary>
-    public class TimerView : View
+    public class TimerView : NotificationView
     {        
         /// <summary>
         /// Flag that indicates if the time-scale affects this Timer.
@@ -74,11 +74,11 @@ namespace thelab.mvc
             if(elapsed>=duration)
             {
                 elapsed = 0f;
-                Notify(notification + ".timer.step");
+                Notify(notification + "@timer.step");
                 step++;
                 if(step>=count)
                 {
-                    Notify(notification + ".timer.complete");
+                    Notify(notification + "@timer.complete");
                     active = false;
                 }
             }

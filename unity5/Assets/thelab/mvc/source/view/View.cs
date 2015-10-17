@@ -9,10 +9,7 @@ namespace thelab.mvc
     /// </summary>
     public class View : Element
     {
-        /// <summary>
-        /// Fixed notification. Can be empty.
-        /// </summary>
-        public string notification;
+        
     }
 
     /// <summary>
