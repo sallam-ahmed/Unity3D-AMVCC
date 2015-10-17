@@ -1,5 +1,5 @@
 Building documentation...
-Memory before build: 1266632
+Memory before build: 1301536
 Initializing...
 Merging XML documentation...
 Cached doc : thelab-mvc.xml (0 sec.)
@@ -160,7 +160,7 @@ TRACE: processing comment '[thelab-mvc]P:thelab.mvc.View`1.app':
 <summary>
             Returns app as a custom 'T' type.
             </summary>
-Memory before making xml: 3578096
+Memory before making xml: 3621192
 Writing namespace thelab.mvc...
 XML Doc not found for UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 XML Doc not found for mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -171,9 +171,9 @@ Wrote 0 delegates.
 Wrote 0 enumerations.
 Completed thelab-mvc, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 0,234 sec.
-MakeXML : 0,234 sec.
-MakeXML : 0,234 sec.
-Memory after making xml: 2368704
+MakeXML : 0,25 sec.
+MakeXML : 0,25 sec.
+Memory after making xml: 2429224
 Loading XSLT files...
 XSLT probing directories 3
 file://C:\Program Files (x86)\NDoc3\bin\Documenter\Msdn\xslt
@@ -218,9 +218,9 @@ thelab-mvc~thelab.mvc.BaseApplication.model.html
 thelab-mvc~thelab.mvc.BaseApplication.view.html
 0 msec.
 thelab-mvc~thelab.mvc.BaseApplication~Methods.html
-16 msec.
-thelab-mvc~thelab.mvc.BaseApplication.Awake.html
 15 msec.
+thelab-mvc~thelab.mvc.BaseApplication.Awake.html
+16 msec.
 thelab-mvc~thelab.mvc.BaseApplication.Notify~Overloads.html
 0 msec.
 thelab-mvc~thelab.mvc.BaseApplication.Notify1.html
@@ -232,11 +232,11 @@ thelab-mvc~thelab.mvc.BaseApplication$3~Members.html
 thelab-mvc~thelab.mvc.BaseApplication$3.~ctor.html
 0 msec.
 thelab-mvc~thelab.mvc.BaseApplication$3~Properties.html
-16 msec.
-thelab-mvc~thelab.mvc.BaseApplication$3.controller1.html
-0 msec.
-thelab-mvc~thelab.mvc.BaseApplication$3.model1.html
 15 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3.controller1.html
+16 msec.
+thelab-mvc~thelab.mvc.BaseApplication$3.model1.html
+0 msec.
 thelab-mvc~thelab.mvc.BaseApplication$3.view1.html
 0 msec.
 thelab-mvc~thelab.mvc.Controller.html
@@ -246,41 +246,41 @@ thelab-mvc~thelab.mvc.Controller~Members.html
 thelab-mvc~thelab.mvc.Controller.~ctor.html
 16 msec.
 thelab-mvc~thelab.mvc.Controller~Methods.html
-16 msec.
-thelab-mvc~thelab.mvc.Controller.OnNotification.html
 0 msec.
-thelab-mvc~thelab.mvc.Controller$1.html
+thelab-mvc~thelab.mvc.Controller.OnNotification.html
 15 msec.
+thelab-mvc~thelab.mvc.Controller$1.html
+16 msec.
 thelab-mvc~thelab.mvc.Controller$1~Members.html
 16 msec.
 thelab-mvc~thelab.mvc.Controller$1.~ctor.html
-15 msec.
+0 msec.
 thelab-mvc~thelab.mvc.Controller$1~Properties.html
-0 msec.
+15 msec.
 thelab-mvc~thelab.mvc.Controller$1.app1.html
-16 msec.
+0 msec.
 thelab-mvc~thelab.mvc.Element.html
-0 msec.
+16 msec.
 thelab-mvc~thelab.mvc.Element~Members.html
-16 msec.
+15 msec.
 thelab-mvc~thelab.mvc.Element.~ctor.html
-15 msec.
+0 msec.
 thelab-mvc~thelab.mvc.Element~Properties.html
-0 msec.
+16 msec.
 thelab-mvc~thelab.mvc.Element.app.html
-16 msec.
+0 msec.
 thelab-mvc~thelab.mvc.Element~Methods.html
-0 msec.
+16 msec.
 thelab-mvc~thelab.mvc.Element.Assert$$1.html
-15 msec.
+0 msec.
 thelab-mvc~thelab.mvc.Element.Find$$1.html
-0 msec.
+15 msec.
 thelab-mvc~thelab.mvc.Element.Log.html
-16 msec.
-thelab-mvc~thelab.mvc.Element.Notify.html
 0 msec.
-thelab-mvc~thelab.mvc.Element$1.html
+thelab-mvc~thelab.mvc.Element.Notify.html
 16 msec.
+thelab-mvc~thelab.mvc.Element$1.html
+0 msec.
 thelab-mvc~thelab.mvc.Element$1~Members.html
 15 msec.
 thelab-mvc~thelab.mvc.Element$1.~ctor.html
@@ -288,57 +288,59 @@ thelab-mvc~thelab.mvc.Element$1.~ctor.html
 thelab-mvc~thelab.mvc.Element$1~Properties.html
 0 msec.
 thelab-mvc~thelab.mvc.Element$1.app1.html
-0 msec.
-thelab-mvc~thelab.mvc.Model.html
-15 msec.
-thelab-mvc~thelab.mvc.Model~Members.html
 16 msec.
+thelab-mvc~thelab.mvc.Model.html
+0 msec.
+thelab-mvc~thelab.mvc.Model~Members.html
+15 msec.
 thelab-mvc~thelab.mvc.Model.~ctor.html
 16 msec.
 thelab-mvc~thelab.mvc.Model$1.html
 0 msec.
 thelab-mvc~thelab.mvc.Model$1~Members.html
-15 msec.
+31 msec.
 thelab-mvc~thelab.mvc.Model$1.~ctor.html
-16 msec.
+0 msec.
 thelab-mvc~thelab.mvc.Model$1~Properties.html
-0 msec.
+16 msec.
 thelab-mvc~thelab.mvc.Model$1.app1.html
-15 msec.
-thelab-mvc~thelab.mvc.View.html
 0 msec.
+thelab-mvc~thelab.mvc.View.html
+15 msec.
 thelab-mvc~thelab.mvc.View~Members.html
 16 msec.
 thelab-mvc~thelab.mvc.View.~ctor.html
-16 msec.
+0 msec.
 thelab-mvc~thelab.mvc.View$1.html
-0 msec.
+15 msec.
 thelab-mvc~thelab.mvc.View$1~Members.html
-15 msec.
-thelab-mvc~thelab.mvc.View$1.~ctor.html
 16 msec.
-thelab-mvc~thelab.mvc.View$1~Properties.html
+thelab-mvc~thelab.mvc.View$1.~ctor.html
 0 msec.
+thelab-mvc~thelab.mvc.View$1~Properties.html
+16 msec.
 thelab-mvc~thelab.mvc.View$1.app1.html
-15 msec.
-Making Html: 0,639 sec.
+0 msec.
+Making Html: 0,624 sec.
 Generating HTML index file...
 transform the HHC contents file into html
 0 msec.
 Compiling HTML Help file...
-An error occured while trying to build the documentation.
+Compiling Html Help file
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling f:\development\project\unity\thelab\unity-mvc-1-0\unity5\Deploy\docs\html\ndoc3_msdn_temp\Unity ModelViewController Framework.chm
 
 
-
-Exception: NDoc3.Core.DocumenterException
-Unable to find the HTML Help Compiler. Please verify that the HTML Help Workshop has been installed.
-
-
-
-Exception: NDoc3.Core.DocumenterException
-   at NDoc3.Documenter.Msdn.HtmlHelp.get_HtmlHelpCompiler()
-   at NDoc3.Documenter.Msdn.HtmlHelp.CompileProject()
-   at NDoc3.Documenter.Msdn.MsdnDocumenter.Build(Project project)
-   at NDoc3.Gui.BuildWorker.ThreadProc()
+Compile time: 0 minutes, 3 seconds
+129	Topics
+496	Local links
+50	Internet links
+4	Graphics
 
 
+Created f:\development\project\unity\thelab\unity-mvc-1-0\unity5\Deploy\docs\html\ndoc3_msdn_temp\Unity ModelViewController Framework.chm, 56,002 bytes
+Compression decreased file by 306,119 bytes.
+
+Html Help compile complete
+Done.
