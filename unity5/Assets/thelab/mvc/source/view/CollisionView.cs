@@ -4,15 +4,14 @@ using System.Collections;
 namespace thelab.mvc
 {
     /// <summary>
-    /// 
+    /// Class that implements CollisionView features for any BaseApplication.
     /// </summary>
     public class CollisionView : CollisionView<BaseApplication> { }
 
     /// <summary>
     /// View class that detects and notifies collision related events.
     /// </summary>
-    public class CollisionView<T> : ColliderView<T> where T : BaseApplication
-    {   
+    public class CollisionView<T> : ColliderView<T> where T : BaseApplication {   
         /// <summary>
         /// Callbacks when a Trigger Collider suffers interaction.
         /// </summary>

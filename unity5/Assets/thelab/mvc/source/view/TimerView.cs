@@ -6,8 +6,7 @@ namespace thelab.mvc
     /// <summary>
     /// Base class for collision related classes.
     /// </summary>
-    public class TimerView : NotificationView
-    {        
+    public class TimerView : NotificationView {        
         /// <summary>
         /// Flag that indicates if the time-scale affects this Timer.
         /// </summary>
@@ -41,8 +40,7 @@ namespace thelab.mvc
         /// <summary>
         /// Restarts the timer.
         /// </summary>
-        public void Restart()
-        {
+        public void Restart() {
             elapsed = 0f;
             step = 0;
         }
@@ -50,16 +48,14 @@ namespace thelab.mvc
         /// <summary>
         /// Activates the Timer.
         /// </summary>
-        public void Play()
-        {
+        public void Play() {
             active = true;
         }
 
         /// <summary>
         /// Stops the Timer and reset its values.
         /// </summary>
-        public void Stop()
-        {
+        public void Stop() {
             active = false;
             Restart();
         }
@@ -67,17 +63,14 @@ namespace thelab.mvc
         /// <summary>
         /// Updates the timer logic.
         /// </summary>
-        void Update()
-        {
+        void Update() {
             if (!active) return;
             elapsed += scale ? Time.deltaTime : Time.unscaledDeltaTime;
-            if(elapsed>=duration)
-            {
+            if(elapsed>=duration) {
                 elapsed = 0f;
                 Notify(notification + "@timer.step");
                 step++;
-                if(step>=count)
-                {
+                if(step>=count) {
                     Notify(notification + "@timer.complete");
                     active = false;
                 }

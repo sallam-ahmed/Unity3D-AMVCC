@@ -6,17 +6,14 @@ using System.Reflection;
 using System;
 using System.Collections.Generic;
 
-namespace thelab.mvc
-{
+namespace thelab.mvc {
 
     [CustomEditor(typeof(NotificationView), true)]
-    public class NotificationViewInspector : Editor
-    {
+    public class NotificationViewInspector : Editor {
         /// <summary>
         /// Reference to the "N" global notification class, if any.
         /// </summary>
-        static Type notification_class
-        {
+        static Type notification_class {
             get
             {
                 if (m_n != null) return m_n;
@@ -47,12 +44,11 @@ namespace thelab.mvc
         /// <summary>
         /// Draws the GUI
         /// </summary>
-        public override void OnInspectorGUI()
-        {
+        public override void OnInspectorGUI() {
+
             Type t = notification_class;
 
-            if (t == null)
-            {
+            if (t == null) {
                 base.OnInspectorGUI();
                 return;
             }
@@ -63,17 +59,14 @@ namespace thelab.mvc
 
             bool is_open = EditorPrefs.GetBool("viewinspector-" + oid, false);
             bool next_is_open = false;
-            if (next_is_open = EditorGUILayout.Foldout(is_open, "Notifications"))
-            {
+            if (next_is_open = EditorGUILayout.Foldout(is_open, "Notifications")) {
 
-                for (int i = 0; i < cl.Length; i++)
-                {
+                for (int i = 0; i < cl.Length; i++) {
                     Type ct = cl[i];
                     List<string> nl = GetNotifications(ct);
                     int selected_notification = nl.IndexOf(target.notification);
                     int next_selection = EditorGUILayout.Popup(ct.Name, selected_notification, nl.ToArray());
-                    if (next_selection != selected_notification)
-                    {
+                    if (next_selection != selected_notification) {
                         string n = nl[next_selection];
                         Undo.RecordObject(target, "Notification Change");
                         target.notification = n;
@@ -81,8 +74,7 @@ namespace thelab.mvc
                 }
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
-                if (GUILayout.Button("Clear", GUILayout.Width(120f)))
-                {
+                if (GUILayout.Button("Clear", GUILayout.Width(120f))) {
                     Undo.RecordObject(target, "Notification Clear");
                     target.notification = "";
                 }
@@ -98,35 +90,31 @@ namespace thelab.mvc
         /// </summary>
         /// <param name="p_type"></param>
         /// <returns></returns>
-        public List<string> GetNotifications(Type p_type)
-        {
+        public List<string> GetNotifications(Type p_type) {
+
             Type t = p_type;
 
             FieldInfo[] fl = t.GetFields(rf);
             List<string> res = new List<string>();
 
-            foreach (FieldInfo it in fl)
-            {
+            foreach (FieldInfo it in fl) {
                 string v = (string)it.GetValue(t);
                 if (v.IndexOf("@") >= 0) v = v.Split('@')[0];
                 v = v.Trim();
                 res.Add(v);
             }
+
             res.Sort();
-            if (res.Count >= 2)
-            {
+
+            if (res.Count >= 2) {
                 for (int i = 0; i < res.Count; i++)
-                    for (int j = i + 1; j < res.Count; j++)
-                    {
-                        if (res[i] == res[j])
-                        {
+                    for (int j = i + 1; j < res.Count; j++) {
+                        if (res[i] == res[j]) {
                             res.RemoveAt(j--);
                         }
                     }
             }
             return res;
-
         }
-
     }
 }

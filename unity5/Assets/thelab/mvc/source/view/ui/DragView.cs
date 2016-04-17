@@ -11,8 +11,7 @@ namespace thelab.mvc
     /// <summary>
     /// Extension to support generic applications.
     /// </summary>
-    public class DragView<T> : DragView where T : BaseApplication
-    {
+    public class DragView<T> : DragView where T : BaseApplication {
         /// <summary>
         /// Returns app as a custom 'T' type.
         /// </summary>
@@ -22,8 +21,7 @@ namespace thelab.mvc
     /// <summary>
     /// Base class for all Mouse Drag features related classes.
     /// </summary>
-    public class DragView : NotificationView, IBeginDragHandler, IDragHandler, IEndDragHandler
-    {
+    public class DragView : NotificationView, IBeginDragHandler, IDragHandler, IEndDragHandler {
         /// <summary>
         /// Flag that indicates there is a dragging occuring.
         /// </summary>
@@ -70,20 +68,17 @@ namespace thelab.mvc
         /// <summary>
         /// Init.
         /// </summary>
-        void Start()
-        {
+        void Start() {
             drag = false;
             position = new Vector2();
             m_delta = new Vector2();
             Transform t = transform.parent;
             Canvas c=null;
-            while(t)
-            {
+            while(t) {
                 c = t.GetComponent<Canvas>();
                 if (c) break;
                 t = t.parent;
             }
-
             if (c) m_canvas = c.GetComponent<RectTransform>();
         }
 
@@ -91,8 +86,7 @@ namespace thelab.mvc
         /// Handles the drag callback.
         /// </summary>
         /// <param name="eventData"></param>
-        public void OnDrag(PointerEventData e)
-        {
+        public void OnDrag(PointerEventData e) {
             if (!drag) return;
             Notify(notification + "@drag",e);
             position = e.position;
@@ -107,15 +101,15 @@ namespace thelab.mvc
         /// Handles the drag start.
         /// </summary>
         /// <param name="eventData"></param>
-        public void OnBeginDrag(PointerEventData e)
-        {
+        public void OnBeginDrag(PointerEventData e) {
+
             Notify(notification + "@drag-starts",e);
             target = e.pointerDrag;
             
             drag = true;
 
-            if (target)
-            {
+            if (target) {
+
                 RectTransform r = target.GetComponent<RectTransform>();
                 
                 Vector2 size = r.rect.size;
@@ -143,8 +137,7 @@ namespace thelab.mvc
                 cg.alpha = alpha;
                 cg.blocksRaycasts = false;
                 
-                if(hide)
-                {
+                if(hide) {
                     cg = target.GetComponent<CanvasGroup>();
                     if (!cg)
                     {
@@ -155,28 +148,23 @@ namespace thelab.mvc
                     m_hide_group.alpha = 0f;
                 }
 
-                //Log("press> " + e.pressPosition);
-
             }
-
         }
 
         /// <summary>
         /// Handles the drag end.
         /// </summary>
         /// <param name="eventData"></param>
-        public void OnEndDrag(PointerEventData e)
-        {            
+        public void OnEndDrag(PointerEventData e) {            
             EndDrag();
         }
 
         /// <summary>
         /// Finishes the drag.
         /// </summary>
-        public void EndDrag()
-        {   
-            if (preview)
-            {
+        public void EndDrag() {   
+
+            if (preview){ 
                 Destroy(preview);
                 preview = null;
             }
@@ -193,21 +181,19 @@ namespace thelab.mvc
         /// <summary>
         /// Undo the the hide operation if any.
         /// </summary>
-        void ShowTarget()
-        {
-            if (hide)
-            {
+        void ShowTarget() {
+
+            if (hide) {
+                
                 CanvasGroup cg = target.GetComponent<CanvasGroup>();
-                if (!cg)
-                {
-                    if (m_hide_group)
-                    {
+
+                if (!cg) {
+                    if (m_hide_group) {
                         m_hide_group.alpha = 1f;
                         Destroy(m_hide_group);
                     }
                 }
-                else
-                {
+                else {
                     cg.alpha = m_initial_alpha;
                 }                
             }
@@ -216,12 +202,9 @@ namespace thelab.mvc
         /// <summary>
         /// Updates this view's drag state.
         /// </summary>
-        void Update()
-        {
-            if(drag)
-            {
-                if(Input.GetKeyDown(KeyCode.Escape)) EndDrag();
-                
+        void Update() {
+            if(drag) {
+                if(Input.GetKeyDown(KeyCode.Escape)) EndDrag();                
             }
         }
 

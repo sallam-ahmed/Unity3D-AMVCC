@@ -7,8 +7,7 @@ namespace thelab.mvc
     /// <summary>
     /// Base class for all Controllers in the application.
     /// </summary>
-    public class Controller : Element
-    {
+    public class Controller : Element {
 
         /// <summary>
         /// Handles notifications sent from any Element in the currently running scene.
@@ -22,8 +21,7 @@ namespace thelab.mvc
     /// <summary>
     /// Base class for all Controller related classes.
     /// </summary>
-    public class Controller<T> : Controller where T : BaseApplication
-    {
+    public class Controller<T> : Controller where T : BaseApplication {
         /// <summary>
         /// Returns app as a custom 'T' type.
         /// </summary>

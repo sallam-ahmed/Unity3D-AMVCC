@@ -9,8 +9,7 @@ namespace thelab.mvc
     /// Extension of the element class to handle different BaseApplication types.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Element<T> : Element where T : BaseApplication
-    {
+    public class Element<T> : Element where T : BaseApplication {
         /// <summary>
         /// Returns app as a custom 'T' type.
         /// </summary>
@@ -20,8 +19,7 @@ namespace thelab.mvc
     /// <summary>
     /// Base class for all MVC related classes.
     /// </summary>
-    public class Element : MonoBehaviour
-    {
+    public class Element : MonoBehaviour {
 
         /// <summary>
         /// Reference to the root application of the scene.
@@ -43,8 +41,7 @@ namespace thelab.mvc
         /// <param name="p_var"></param>
         /// <param name="p_global"></param>
         /// <returns></returns>
-        public T Assert<T>(T p_var, bool p_global=false) where T : Object 
-        {
+        public T Assert<T>(T p_var, bool p_global=false) where T : Object {
             return p_var == null ? (p_global ? GameObject.FindObjectOfType<T>() : transform.GetComponentInChildren<T>()) : p_var;            
         }
 
@@ -56,8 +53,7 @@ namespace thelab.mvc
         /// <param name="p_key"></param>
         /// <param name="p_global"></param>
         /// <returns></returns>
-        public T Assert<T>(string p_key, bool p_global = false) where T : Object
-        {
+        public T Assert<T>(string p_key, bool p_global = false) where T : Object {
             if (m_store.ContainsKey(p_key)) { return (T)(object)m_store[p_key]; }
             T v = (p_global ? GameObject.FindObjectOfType<T>() : transform.GetComponentInChildren<T>());
             m_store[p_key] = v;
@@ -70,8 +66,7 @@ namespace thelab.mvc
         /// <typeparam name="T"></typeparam>
         /// <param name="p_key"></param>
         /// <returns></returns>
-        public T AssertLocal<T>(string p_key) where T : Object
-        {
+        public T AssertLocal<T>(string p_key) where T : Object {
             if (m_store.ContainsKey(p_key)) { return (T)(object)m_store[p_key]; }
             T v = GetComponent<T>();
             m_store[p_key] = v;
@@ -84,8 +79,7 @@ namespace thelab.mvc
         /// <typeparam name="T"></typeparam>
         /// <param name="p_var"></param>
         /// <returns></returns>
-        public T AssertLocal<T>(T p_var,string p_store="") where T : Object 
-        {
+        public T AssertLocal<T>(T p_var,string p_store="") where T : Object {
             T v = default(T);
             if (p_store != "") if (m_store.ContainsKey(p_store)) { return (T)(object)m_store[p_store]; }   
             v = p_var == null ? (p_var = GetComponent<T>()) : p_var;
@@ -99,8 +93,7 @@ namespace thelab.mvc
         /// <typeparam name="T"></typeparam>
         /// <param name="p_key"></param>
         /// <returns></returns>
-        public T AssertParent<T>(string p_key) where T : Object
-        {
+        public T AssertParent<T>(string p_key) where T : Object {
             if (m_store.ContainsKey(p_key)) { return (T)(object)m_store[p_key]; }
             T v = GetComponentInParent<T>();
             m_store[p_key] = v;
@@ -113,8 +106,7 @@ namespace thelab.mvc
         /// <typeparam name="T"></typeparam>
         /// <param name="p_var"></param>
         /// <returns></returns>
-        public T AssertParent<T>(T p_var, string p_store = "") where T : Object
-        {
+        public T AssertParent<T>(T p_var, string p_store = "") where T : Object {
             T v = default(T);
             if (p_store != "") if (m_store.ContainsKey(p_store)) { return (T)(object)m_store[p_store]; }
             v = p_var == null ? (p_var = GetComponentInParent<T>()) : p_var;
@@ -134,20 +126,17 @@ namespace thelab.mvc
         /// </summary>
         /// <param name="p_path"></param>
         /// <returns></returns>
-        public T Find<T>(string p_path) where T : Component
-        {
+        public T Find<T>(string p_path) where T : Component {
             List<string> tks = new List<string>(p_path.Split('.'));
             if (tks.Count <= 0) return default(T);
             Transform it = transform;
-            while (tks.Count > 0)
-            {
+            while (tks.Count > 0) {
                 string p = tks[0];
                 tks.RemoveAt(0);
                 it = it.FindChild(p);
                 if (it == null) return default(T);
             }
             return it.GetComponent<T>();
-
         }
 
         /// <summary>
@@ -156,8 +145,7 @@ namespace thelab.mvc
         /// <typeparam name="T"></typeparam>
         /// <param name="p_path"></param>
         /// <returns></returns>
-        public T AssertFind<T>(string p_path) where T : Component
-        {
+        public T AssertFind<T>(string p_path) where T : Component {
             if (m_store.ContainsKey(p_path)) { return (T)(object)m_store[p_path]; }
             T v = Find<T>(p_path);
             m_store[p_path] = v;
@@ -183,8 +171,7 @@ namespace thelab.mvc
         /// Logs a message using this element information.
         /// </summary>
         /// <param name="p_msg"></param>
-        public void Log(object p_msg, int p_verbose = 0)
-        {
+        public void Log(object p_msg, int p_verbose = 0) {
             //Only outputs logs equal or bigger than the application 'verbose' level.
             if (p_verbose <= app.verbose) Debug.Log(GetType().Name + "> " + p_msg);
         }
