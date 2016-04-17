@@ -11,8 +11,7 @@ namespace thelab.mvc
     /// <summary>
     /// Extension to support generic applications.
     /// </summary>
-    public class RaycastView<T> : RaycastView where T : BaseApplication
-    {
+    public class RaycastView<T> : RaycastView where T : BaseApplication {
         /// <summary>
         /// Returns app as a custom 'T' type.
         /// </summary>
@@ -45,10 +44,14 @@ namespace thelab.mvc
         public Collider[] colliders;
 
         /// <summary>
+        /// Point of View camera. Defaults to Camera.main
+        /// </summary>
+        public Camera view;
+
+        /// <summary>
         /// Init.
         /// </summary>
-        void Awake()
-        {            
+        void Awake() {            
             hold = 0f;
             down = false;
             over = false;
@@ -58,31 +61,26 @@ namespace thelab.mvc
         /// <summary>
         /// Updates the collider check.
         /// </summary>
-        void Update()
-        {            
-            Camera cam = Camera.main;
+        void Update() {            
+
+            Camera cam = view ? view : Camera.main;
             bool is_over = false;
-            if(cam)
-            {                
+            if(cam) {                
                 RaycastHit hit;
                 Ray r = cam.ScreenPointToRay(Input.mousePosition);
-                for (int i = 0; i < colliders.Length;i++)
-                {
+                for (int i = 0; i < colliders.Length;i++) {
                     Collider c = colliders[i];
-                    if(c.Raycast(r,out hit,1000f))
-                    {
+                    if(c.Raycast(r,out hit,1000f)) {
                         is_over = true;
                         break;
                     }
                 }
             }
 
-            if (over) 
-            { 
+            if (over) { 
                 if (!is_over) { Notify(notification + "@out"); } 
             }
-            else
-            {
+            else {
                 if (is_over) { Notify(notification + "@over"); }
             }
             
@@ -91,27 +89,22 @@ namespace thelab.mvc
 
             bool is_down = over && (Input.GetKey(KeyCode.Mouse0) || (Input.touchCount==1));
 
-            if (down)
-            {
-                if (!is_down) 
-                { 
+            if (down) {
+                if (!is_down) { 
                     Notify(notification + "@up"); 
-                    if(is_over)
-                    {
+                    if(is_over) {
                         Notify(notification + "@click"); 
                     }
                     hold = 0f; 
                 }
             }
-            else
-            {
+            else {
                 if (is_down) { Notify(notification + "@down"); hold = 0f; }
             }            
             
             down = is_down;
 
-            if (down)
-            {
+            if (down) {
                 Notify(notification + "@hold");
                 hold += Time.unscaledDeltaTime;
             }

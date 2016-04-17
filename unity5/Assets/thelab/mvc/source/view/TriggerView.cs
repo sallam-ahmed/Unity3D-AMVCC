@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace thelab.mvc
-{
+namespace thelab.mvc {
+
     /// <summary>
-    /// 
+    /// Class that implements TriggerView features for any BaseApplication
     /// </summary>
     public class TriggerView : TriggerView<BaseApplication> { }
 
     /// <summary>
     /// View class that detects and notifies trigger related events.
     /// </summary>
-    public class TriggerView<T> : ColliderView<T> where T : BaseApplication
-    {
+    public class TriggerView<T> : ColliderView<T> where T : BaseApplication {
         /// <summary>
         /// Callbacks when a Trigger Collider suffers interaction.
         /// </summary>

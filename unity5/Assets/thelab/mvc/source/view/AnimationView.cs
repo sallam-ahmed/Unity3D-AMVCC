@@ -8,8 +8,8 @@ namespace thelab.mvc
     /// <summary>
     /// Base class for collision related classes.
     /// </summary>
-    public class AnimationView : NotificationView
-    {
+    public class AnimationView : NotificationView {
+
         #region class Argument
 
         /// <summary>
@@ -104,15 +104,18 @@ namespace thelab.mvc
 
         #endregion
 
+        #region struct Interval
+
         /// <summary>
         /// Describes an interval.
         /// </summary>
         [System.Serializable]
-        public struct Interval
-        {
+        public struct Interval {
             public float min;
             public float max;
         }
+
+        #endregion
 
         #region class Callback
 
@@ -314,8 +317,7 @@ namespace thelab.mvc
         /// <summary>
         /// Init.
         /// </summary>
-        void Awake()
-        {
+        void Awake() {
             for (int i = 0; i < events.Count; i++) { events[i].Init(this); }
         }
 
@@ -324,14 +326,11 @@ namespace thelab.mvc
         /// </summary>
         /// <param name="p_event"></param>
         /// <param name="p_args"></param>
-        public void OnAnimationEvent(string p_event,List<Argument> p_args)
-        {
+        public void OnAnimationEvent(string p_event,List<Argument> p_args) {
             object[] ev_args = new object[p_args.Count];
-            for (int i = 0; i < p_args.Count;i++)
-            {
+            for (int i = 0; i < p_args.Count;i++) {
                 Argument a = p_args[i];
-                switch(a.type)
-                {
+                switch(a.type) {
                     case Argument.Type.Int:     ev_args[i] = a.aInt;     break;
                     case Argument.Type.Float:   ev_args[i] = a.aFloat;   break;
                     case Argument.Type.String:  ev_args[i] = a.aString;  break;
@@ -357,8 +356,7 @@ namespace thelab.mvc
         /// <summary>
         /// Update used to check for events.
         /// </summary>
-        void Update()
-        {
+        void Update() {
             for (int i = 0; i < events.Count; i++) events[i].Update();
         }
     }

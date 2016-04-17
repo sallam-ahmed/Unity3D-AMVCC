@@ -44,8 +44,7 @@ namespace thelab.mvc
     {
         /// <summary>
         /// Arguments to be passed between scenes.
-        /// </summary>
-        static List<string> m_args { get { return __args == null ? (__args = new List<string>()) : __args; } }
+        /// </summary>        
         static List<string> __args;
 
         /// <summary>
@@ -98,8 +97,7 @@ namespace thelab.mvc
         /// <summary>
         /// Initialization.
         /// </summary>
-        virtual protected void Start()
-        {
+        virtual protected void Start() {
             __async_loads = new List<UnityEngine.AsyncOperation>();
             __async_args = new List<string>();
             if (m_first_scene) { m_first_scene = false; OnLevelWasLoaded(Application.loadedLevel); }
@@ -109,8 +107,7 @@ namespace thelab.mvc
         /// Capture the level loaded event and notify controllers for 'starting' purposes.
         /// </summary>
         /// <param name="p_level"></param>
-        private void OnLevelWasLoaded(int p_level)
-        {
+        private void OnLevelWasLoaded(int p_level) {
             Notify("scene.load", new object[] { Application.loadedLevelName, Application.loadedLevel });
         }
 
@@ -120,8 +117,7 @@ namespace thelab.mvc
         /// <param name="p_event"></param>
         /// <param name="p_target"></param>
         /// <param name="p_data"></param>
-        public void Notify(string p_event, Object p_target, params object[] p_data)
-        {            
+        public void Notify(string p_event, Object p_target, params object[] p_data) {            
             Controller root = transform.GetComponentInChildren<Controller>();
             Controller[] list = root.GetComponentsInChildren<Controller>();
             Log(p_event + " [" + p_target + "]", 6);
@@ -141,8 +137,7 @@ namespace thelab.mvc
         /// <param name="p_event"></param>
         /// <param name="p_target"></param>
         /// <param name="p_data"></param>
-        public void Notify(float p_delay,string p_event, Object p_target,params object[] p_data)
-        {            
+        public void Notify(float p_delay,string p_event, Object p_target,params object[] p_data) {            
             StartCoroutine(TimedNotify(p_delay,p_event,p_target,p_data));
         }
 
@@ -154,31 +149,20 @@ namespace thelab.mvc
         /// <param name="p_target"></param>
         /// <param name="p_data"></param>
         /// <returns></returns>
-        private IEnumerator TimedNotify(float p_delay, string p_event, Object p_target,params object[] p_data)
-        {
+        private IEnumerator TimedNotify(float p_delay, string p_event, Object p_target,params object[] p_data) {
             yield return new WaitForSeconds(p_delay);
             Notify(p_event, p_target, p_data);
         }
-
-        /// <summary>
-        /// Notifies all application's controllers informing who's the 'target' after 'delay' in seconds.
-        /// </summary>
-        /// <param name="p_delay"></param>
-        /// <param name="p_event"></param>
-        /// <param name="p_target"></param>
-        public void Notify(float p_delay, string p_event, Object p_target) { Notify(p_delay,p_event, p_target); }
-
+        
         /// <summary>
         /// Adds a new scene by name. An async flag can control the load type.
         /// </summary>
         /// <param name="p_name"></param>
         /// <param name="p_async"></param>
         /// <param name="p_args"></param>
-        public void SceneAdd(string p_name, bool p_async, params string[] p_args)
-        {
+        public void SceneAdd(string p_name, bool p_async, params string[] p_args) {
             if (p_async) { StartCoroutine(SceneLoadAsync(p_name, true, p_args)); }
-            else
-            {
+            else {
                 __args = new List<string>(p_args);
                 Application.LoadLevelAdditive(p_name);
             }
@@ -197,11 +181,9 @@ namespace thelab.mvc
         /// <param name="p_name"></param>
         /// <param name="p_async"></param>
         /// <param name="p_args"></param>
-        public void SceneLoad(string p_name,bool p_async,params string[] p_args)
-        {
+        public void SceneLoad(string p_name,bool p_async,params string[] p_args) {
             if (p_async) { StartCoroutine(SceneLoadAsync(p_name,false,p_args)); }
-            else
-            {
+            else {
                 __args = new List<string>(p_args);
                 Application.LoadLevel(p_name);
             }
@@ -220,19 +202,16 @@ namespace thelab.mvc
         /// <param name="p_name"></param>
         /// <param name="p_args"></param>
         /// <returns></returns>
-        private IEnumerator SceneLoadAsync(string p_name,bool p_additive,params string[] p_args)
-        {
+        private IEnumerator SceneLoadAsync(string p_name,bool p_additive,params string[] p_args) {
             //float p = 0f;
             UnityEngine.AsyncOperation async = null;
             string ev = "";
 
-            if(p_additive)
-            {
+            if(p_additive) {
                 ev = "scene.add.progress";
                 async = Application.LoadLevelAdditiveAsync(p_name);
             }
-            else
-            {
+            else {
                 ev = "scene.load.progress";
                 async = Application.LoadLevelAsync(p_name);
             }
@@ -247,21 +226,19 @@ namespace thelab.mvc
         /// <summary>
         /// Update some internal states.
         /// </summary>
-        void Update()
-        {
-            for(int i=0;i<m_async_loads.Count;i++)
-            {
+        void Update() {
+            for(int i=0;i<m_async_loads.Count;i++) {
+                
                 UnityEngine.AsyncOperation async = m_async_loads[i];
-                if (async != null)
-                {
+
+                if (async != null) {
                     string args = m_async_args[i];
                     string s_name = args.Split('~')[0];
                     string s_ev = args.Split('~')[1];
                     if (s_ev != "") Notify(s_ev, new object[] { s_name, async.progress });
                     if (async.progress >= 1.0) m_async_loads[i] = null;                    
                 }
-                else
-                {
+                else {
                     m_async_loads.RemoveAt(i--);
                     m_async_args.RemoveAt(i--);
                 }
