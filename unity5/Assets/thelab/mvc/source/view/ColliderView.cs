@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+#pragma warning disable 0109
+#pragma warning disable 0108
+
 namespace thelab.mvc
 {
     /// <summary>
