@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+#pragma warning disable 0109
+#pragma warning disable 0108
+
 namespace thelab.mvc
 {   
     
@@ -312,7 +315,7 @@ namespace thelab.mvc
         /// <summary>
         /// Reference to this element's Animation component.
         /// </summary>
-        new internal Animation animation { get { return AssertLocal<Animation>("animation"); } }
+        internal Animation animation { get { return AssertLocal<Animation>("animation"); } }
 
         /// <summary>
         /// Init.

@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Threading;
 using System.ComponentModel;
 
-
-
+#if UNITY_5_3_OR_NEWER
+using UnityEngine.SceneManagement;
+#endif
 
 
 namespace thelab.mvc
@@ -86,6 +87,32 @@ namespace thelab.mvc
         private Controller m_controller;
 
         /// <summary>
+        /// Wrapper for the current scene's id.
+        /// </summary>
+        public int levelId {
+            get {
+                #if UNITY_5_3_OR_NEWER
+                return SceneManager.GetActiveScene().buildIndex;
+                #else
+                return Application.loadedLevel;
+                #endif
+            }
+        }
+
+        /// <summary>
+        /// Wrapper for the current scene's name.
+        /// </summary>
+        public string levelName {
+            get {
+                #if UNITY_5_3_OR_NEWER
+                return SceneManager.GetActiveScene().name;
+                #else
+                return Application.loadedLevelName;
+                #endif
+            }
+        }
+
+        /// <summary>
         /// Async data structures.
         /// </summary>
         private List<UnityEngine.AsyncOperation> m_async_loads { get { return __async_loads == null ? (__async_loads = new List<UnityEngine.AsyncOperation>()) : __async_loads; } }
@@ -100,7 +127,8 @@ namespace thelab.mvc
         virtual protected void Start() {
             __async_loads = new List<UnityEngine.AsyncOperation>();
             __async_args = new List<string>();
-            if (m_first_scene) { m_first_scene = false; OnLevelWasLoaded(Application.loadedLevel); }
+            if (m_first_scene) { m_first_scene = false; OnLevelWasLoaded(levelId); }
+            Notify("scene.start", new object[] { levelName, levelId });
         }
 
         /// <summary>
@@ -108,7 +136,7 @@ namespace thelab.mvc
         /// </summary>
         /// <param name="p_level"></param>
         private void OnLevelWasLoaded(int p_level) {
-            Notify("scene.load", new object[] { Application.loadedLevelName, Application.loadedLevel });
+            Notify("scene.load", new object[] { levelName, levelId });
         }
 
         /// <summary>
@@ -164,7 +192,11 @@ namespace thelab.mvc
             if (p_async) { StartCoroutine(SceneLoadAsync(p_name, true, p_args)); }
             else {
                 __args = new List<string>(p_args);
+                #if UNITY_5_3_OR_NEWER
+                SceneManager.LoadScene(p_name, LoadSceneMode.Additive);
+                #else
                 Application.LoadLevelAdditive(p_name);
+                #endif
             }
         }
 
@@ -185,7 +217,11 @@ namespace thelab.mvc
             if (p_async) { StartCoroutine(SceneLoadAsync(p_name,false,p_args)); }
             else {
                 __args = new List<string>(p_args);
+                #if UNITY_5_3_OR_NEWER
+                SceneManager.LoadScene(p_name, LoadSceneMode.Single);
+                #else
                 Application.LoadLevel(p_name);
+                #endif
             }
         }
 
@@ -206,14 +242,22 @@ namespace thelab.mvc
             //float p = 0f;
             UnityEngine.AsyncOperation async = null;
             string ev = "";
-
+            
             if(p_additive) {
                 ev = "scene.add.progress";
+                #if UNITY_5_3_OR_NEWER
+                async = SceneManager.LoadSceneAsync(p_name,LoadSceneMode.Additive);
+                #else
                 async = Application.LoadLevelAdditiveAsync(p_name);
+                #endif
             }
             else {
                 ev = "scene.load.progress";
+                #if UNITY_5_3_OR_NEWER
+                async = SceneManager.LoadSceneAsync(p_name,LoadSceneMode.Single);
+                #else
                 async = Application.LoadLevelAsync(p_name);
+                #endif                
             }
 
             m_async_loads.Add(async);
@@ -246,3 +290,5 @@ namespace thelab.mvc
         }
     }
 }
+
+#pragma warning restore 0618
