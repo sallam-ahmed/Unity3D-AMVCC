@@ -145,11 +145,13 @@ namespace thelab.mvc
         /// <param name="p_event"></param>
         /// <param name="p_target"></param>
         /// <param name="p_data"></param>
-        public void Notify(string p_event, Object p_target, params object[] p_data) {            
-            Controller root = transform.GetComponentInChildren<Controller>();
-            Controller[] list = root.GetComponentsInChildren<Controller>();
+        public void Notify(string p_event, Object p_target, params object[] p_data) {                        
             Log(p_event + " [" + p_target + "]", 6);
-            for (int i = 0; i < list.Length; i++) list[i].OnNotification(p_event, p_target, p_data);
+            Traverse(delegate(Transform it) {
+                Controller[] list = it.GetComponents<Controller>();
+                for (int i = 0; i < list.Length; i++) list[i].OnNotification(p_event, p_target, p_data);
+                return true;
+            });
         }
 
         /// <summary>
