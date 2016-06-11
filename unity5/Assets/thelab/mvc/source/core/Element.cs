@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 namespace thelab.mvc
 {
 
@@ -115,6 +116,19 @@ namespace thelab.mvc
         }
 
         /// <summary>
+        /// Retrieves a value from cache or store it.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="p_store"></param>
+        /// <param name="p_value"></param>
+        /// <returns></returns>
+        public T AssertCache<T>(string p_store,T p_value) {
+            if (m_store.ContainsKey(p_store)) { return (T)(object)m_store[p_store]; }
+            m_store[p_store] = p_value;
+            return p_value;
+        }
+
+        /// <summary>
         /// Helper method for casting.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -166,6 +180,24 @@ namespace thelab.mvc
         /// <param name="p_event"></param>
         /// <param name="p_data"></param>
         public void Notify(float p_delay,string p_event,params object[] p_data) { app.Notify(p_delay,p_event, this, p_data); }
+
+        /// <summary>
+        /// Traverses this element's Transform hierarchy with DFS approach.
+        /// </summary>
+        /// <param name="p_callback"></param>
+        public void Traverse(System.Predicate<Transform> p_callback) {
+            OnTraverseStep(transform,p_callback);
+        }
+
+        /// <summary>
+        /// Traverse one element then its children.
+        /// </summary>
+        /// <param name="p_target"></param>
+        /// <param name="p_callback"></param>
+        private void OnTraverseStep(Transform p_target,System.Predicate<Transform> p_callback) {
+            if(p_target) if(!p_callback(p_target)) return;
+            for(int i=0;i<p_target.childCount;i++) { OnTraverseStep(p_target.GetChild(i),p_callback); }
+        }
 
         /// <summary>
         /// Logs a message using this element information.
